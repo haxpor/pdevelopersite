@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>pdevelopersite</title>
+    <title>Playbasis Developer Documentation</title>
     <description>This is a testing developer site configured with automated build to ./docs as github's page.
 </description>
     <link>https://haxpor.github.io/pdevelopersite/pdevelopersite//</link>
     <atom:link href="https://haxpor.github.io/pdevelopersite/pdevelopersite//feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 16 Jan 2017 16:07:40 +0800</pubDate>
-    <lastBuildDate>Mon, 16 Jan 2017 16:07:40 +0800</lastBuildDate>
+    <pubDate>Mon, 16 Jan 2017 23:29:40 +0800</pubDate>
+    <lastBuildDate>Mon, 16 Jan 2017 23:29:40 +0800</lastBuildDate>
     <generator>Jekyll v3.3.1</generator>
     
       <item>
