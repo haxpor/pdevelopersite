@@ -2,22 +2,122 @@
 layout: default
 ---
 
-<div class="home">
+<div class="navbar" role="navigation">
+  <div class="container">
+      <div class="navbar-header">
+          <button type="button" class="navbar-toggle main-navbar-btn" >
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand logo" href="index.php">Playbasis</a>
+      </div>
 
-  <h1 class="page-heading">Posts</h1>
+      <script>
+          $(document).ready(function(){
+              $( ".main-navbar-btn" ).click(function() {
+                  $( "#main-navbar-wrapper" ).slideToggle();
+              });
+          });
+      </script>
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+      <div class="collapse navbar-collapse" id="main-navbar-wrapper">
+          <ul class="nav navbar-nav navbar-right">
+              <li ><a href="http://dev.playbasis.com/index.php">Developer</a></li>
+              <li><a href="http://dev.playbasis.com/gettingstarted.php">Getting Started</a></li>
+              <li><a href="http://dev.playbasis.com/demo.php">Demo</a></li>
+              <li><a href="http://dev.playbasis.com/docs.php">Documentation</a></li>
+              <li><a href="http://doc.playbasis.com/pbapp">API Explorer</a></li>
+              <li><a href="https://www.pbapp.net/login#register" class="btn btn-primary">Sign up !</a></li>
+          </ul>
+      </div><!-- /.nav-collapse -->
+  </div><!-- /.container -->
+</div><!-- /.navbar -->
 
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
+<div class="hero">
+  <div class="hero-content">
+    <div class="row">
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+      <div class="main-intro-img col-sm-6"></div><!-- .main-intro-img -->
 
+      <div class="main-intro-wrapper col-sm-6">
+        <h2>Engage Your Users With</h2>
+        <h1>GAMIFICATION</h1>
+        <p>Playbasis takes businesses to the next level by helping them compete in today’s Engagement Economy. Leading businesses rely on Playbasis to power audience engagement across all of their digital touchpoints. Our Gamification Platform makes websites and apps more engaging, resulting in increased adoption, conversion, and loyalty. When you motivate and engage your audience, they’ll do more, stay longer, and invite their friends.</p>
+        <a href="gettingstarted.php" class="btn btn-primary btn-lg">Getting Started</a>
+      </div><!-- .main-intro-wrapper -->
+
+    </div><!-- .row -->
+  </div><!-- .hero-content -->
 </div>
+
+<div class="container page-main">
+
+  <div class="main-highlight row">
+
+    <div class="col-sm-4">
+      <div class="each-highlight">
+        <img src="images/main-icon01.png">
+        <h3>Rest API</h3>
+        <p>Integrate with our Rest API and make your websites or digital channels alive. Playbasis API offers full customization which can be adapted to any digital channels.</p>
+        <a href="http://doc.playbasis.com/pbapp/" class="btn btn-primary">Learn more</a>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="each-highlight">
+        <img src="images/main-icon02.png">
+        <h3>Documentation</h3>
+        <p>Interaction in digital products is one of gamification heart. Playbasis API is ready to connect to your digital actions, and associated with game rules which will trigger engagement.</p>
+        <a href="docs.php" class="btn btn-primary">Learn more</a>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="each-highlight">
+        <img src="images/main-icon03.png">
+        <h3>Download SDK</h3>
+        <p>Download our SDK and integrate to your apps. Playbasis SDK offers ready-to-implement SDK to any mobile applications together with capabilities of customization for activities.</p>
+        <a href="download.php" class="btn btn-primary">Download</a>
+      </div>
+    </div>
+
+  </div><!-- .main-highlight -->
+
+  <div class="main-demo-wrapper">
+    
+    <!-- <div class="row">
+      <div class="col-sm-7">
+         <img src="images/demo-gamification.png">
+      </div>
+      <div class="col-sm-5">
+        <h3>Gamification Demo</h3>
+        <p>Interactive demo of the Playbasis API, integrated into a fully responsive website. The demo covers all basic capabilities of the Playbasis Gamification Platform, including website-action integration, e-commerce support, user dashboard with past activities, leaderboard, live feed, and achievement system.</p>
+        <a href="http://demo.playbasis.com/" target="_blank" class="btn btn-primary btn-lg">View Demo</a>
+      </div>
+    </div> --><!-- .row -->
+
+    <div class="row">
+      <div class="col-sm-7 right">
+        <img src="images/demo-dashboard.png">
+      </div>
+      <div class="col-sm-5">
+        <h3>Powerful Dashboard</h3>
+        <p>Playbasis equips an organization with powerful tools to better engage and retain their audience, whether they are customers or employees. Playbasis utilizes proven techniques from social games and applications to drive user behavior. Playbasis gives businesses the ability to not only measure audience behavior, but to drive behaviors towards desired business outcomes. The Dashboard comes with essential business tools for performing analysis and report composing as ready-to-use excel or csv file.</p>
+        <a href="http://pbapp.net/" target="_blank" class="btn btn-primary btn-lg">View Demo</a>
+      </div>
+    </div><!-- .row -->
+
+    <div class="row">
+      <div class="col-sm-6">
+        <img src="images/demo-mobile.png">
+      </div>
+      <div class="col-sm-5">
+        <h3>Mobile SDK Demo</h3>
+        <p>The Playbasis Mobile SDK works with any mobile or tablet application, providing more exciting engagement for both normal applications and games. With the Playbasis Mobile SDK you can make every action more engaging, rewarding your users with badges, achievements, and other forms of compensation.</p>
+        <a href="http://demomobile.playbasis.com" target="_blank" class="btn btn-primary btn-lg">View Demo</a>
+      </div>
+    </div><!-- .row -->
+
+  </div><!-- .main-demo-wrapper -->
+
+</div><!--/.container-->
