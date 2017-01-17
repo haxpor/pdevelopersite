@@ -11,7 +11,7 @@
 ">
 
     <link rel="stylesheet" href="/pdevelopersite//css/main.css">
-    <link rel="canonical" href="https://haxpor.github.io/pdevelopersite/pdevelopersite//">
+    <link rel="canonical" href="https://haxpor.github.io/pdevelopersite//">
 
     <link rel="shortcut icon" href="favicon.ico">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -48,46 +48,42 @@
 
   <body>
 
-    <header class="">
-</header>
+    <div class="navbar" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle main-navbar-btn" >
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand logo" href="index.html">Playbasis</a>
+        </div>
 
+        <script>
+            $(document).ready(function(){
+                $( ".main-navbar-btn" ).click(function() {
+                    $( "#main-navbar-wrapper" ).slideToggle();
+                });
+            });
+        </script>
+
+        <div class="collapse navbar-collapse" id="main-navbar-wrapper">
+            <ul class="nav navbar-nav navbar-right">
+                <li ><a href="index.html">Developer</a></li>
+                <li><a href="gettingstarted.html">Getting Started</a></li>
+                <li><a href="demo.html">Demo</a></li>
+                <li><a href="docs.html">Documentation</a></li>
+                <li><a href="http://doc.playbasis.com/pbapp">API Explorer</a></li>
+                <li><a href="https://www.pbapp.net/login#register" class="btn btn-primary">Sign up !</a></li>
+            </ul>
+        </div><!-- /.nav-collapse -->
+    </div><!-- /.container -->
+</div><!-- /.navbar -->
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="navbar" role="navigation">
-  <div class="container">
-      <div class="navbar-header">
-          <button type="button" class="navbar-toggle main-navbar-btn" >
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand logo" href="index.php">Playbasis</a>
-      </div>
-
-      <script>
-          $(document).ready(function(){
-              $( ".main-navbar-btn" ).click(function() {
-                  $( "#main-navbar-wrapper" ).slideToggle();
-              });
-          });
-      </script>
-
-      <div class="collapse navbar-collapse" id="main-navbar-wrapper">
-          <ul class="nav navbar-nav navbar-right">
-              <li ><a href="http://dev.playbasis.com/index.php">Developer</a></li>
-              <li><a href="http://dev.playbasis.com/gettingstarted.php">Getting Started</a></li>
-              <li><a href="http://dev.playbasis.com/demo.php">Demo</a></li>
-              <li><a href="http://dev.playbasis.com/docs.php">Documentation</a></li>
-              <li><a href="http://doc.playbasis.com/pbapp">API Explorer</a></li>
-              <li><a href="https://www.pbapp.net/login#register" class="btn btn-primary">Sign up !</a></li>
-          </ul>
-      </div><!-- /.nav-collapse -->
-  </div><!-- /.container -->
-</div><!-- /.navbar -->
-
-<div class="hero">
+        <div class="hero">
   <div class="hero-content">
     <div class="row">
 
@@ -97,7 +93,7 @@
         <h2>Engage Your Users With</h2>
         <h1>GAMIFICATION</h1>
         <p>Playbasis takes businesses to the next level by helping them compete in today’s Engagement Economy. Leading businesses rely on Playbasis to power audience engagement across all of their digital touchpoints. Our Gamification Platform makes websites and apps more engaging, resulting in increased adoption, conversion, and loyalty. When you motivate and engage your audience, they’ll do more, stay longer, and invite their friends.</p>
-        <a href="gettingstarted.php" class="btn btn-primary btn-lg">Getting Started</a>
+        <a href="gettingstarted.html" class="btn btn-primary btn-lg">Getting Started</a>
       </div><!-- .main-intro-wrapper -->
 
     </div><!-- .row -->
@@ -121,7 +117,7 @@
         <img src="images/main-icon02.png">
         <h3>Documentation</h3>
         <p>Interaction in digital products is one of gamification heart. Playbasis API is ready to connect to your digital actions, and associated with game rules which will trigger engagement.</p>
-        <a href="docs.php" class="btn btn-primary">Learn more</a>
+        <a href="docs.html" class="btn btn-primary">Learn more</a>
       </div>
     </div>
     <div class="col-sm-4">
@@ -129,7 +125,7 @@
         <img src="images/main-icon03.png">
         <h3>Download SDK</h3>
         <p>Download our SDK and integrate to your apps. Playbasis SDK offers ready-to-implement SDK to any mobile applications together with capabilities of customization for activities.</p>
-        <a href="download.php" class="btn btn-primary">Download</a>
+        <a href="download.html" class="btn btn-primary">Download</a>
       </div>
     </div>
 
@@ -178,9 +174,9 @@
 
     <footer class="text-center">
   <ul class="footer-nav">
-    <li ><a href="http://dev.playbasis.com/index.php">Developer</a></li>
-    <li><a href="http://dev.playbasis.com/gettingstarted.php">Getting Started</a></li>
-    <li><a href="http://dev.playbasis.com/demo.php">Demo</a></li>
+    <li ><a href="index.html">Developer</a></li>
+    <li><a href="gettingstarted.html">Getting Started</a></li>
+    <li><a href="demo.html">Demo</a></li>
     <li><a href="http://dev.playbasis.com/docs.php">Documentation</a></li>
     <li><a href="http://doc.playbasis.com/pbapp">API Explorer</a></li>
   </ul>

@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Playbasis Developer Documentation</title>
+    <meta name="description" content="This is a testing developer site configured with automated build to ./docs as github's page.
+">
+
+    <link rel="stylesheet" href="/pdevelopersite//css/main.css">
+    <link rel="canonical" href="https://haxpor.github.io/pdevelopersite//gettingstarted.html">
+
+    <link rel="shortcut icon" href="favicon.ico">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=100%, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Playbasis Head Section -->
+    <script src="//cdn.playbasis.com/jquery/1.10.2/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="vendors/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="vendors/bootstrap/bootstrap-theme.min.css">
+    <script src="vendors/bootstrap/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="//cdn.playbasis.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet" type="text/css">
+
+    <script src="js/run_prettify.js"></script>
+
+    <link rel="stylesheet" href="css/sunburst.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+
+    <!-- Javascript -->
+    <script type='text/javascript' src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.7.1/modernizr.min.js"></script>
+    <script type='text/javascript' src="js/css3-mediaqueries.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script type='text/javascript' src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script type='text/javascript' src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
+    <![endif]-->
+    <!-- End of Playbasis Head Section -->
+</head>
+
+
+  <body>
+
+    <div class="navbar" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle main-navbar-btn" >
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand logo" href="index.html">Playbasis</a>
+        </div>
+
+        <script>
+            $(document).ready(function(){
+                $( ".main-navbar-btn" ).click(function() {
+                    $( "#main-navbar-wrapper" ).slideToggle();
+                });
+            });
+        </script>
+
+        <div class="collapse navbar-collapse" id="main-navbar-wrapper">
+            <ul class="nav navbar-nav navbar-right">
+                <li ><a href="index.html">Developer</a></li>
+                <li><a href="gettingstarted.html">Getting Started</a></li>
+                <li><a href="demo.html">Demo</a></li>
+                <li><a href="docs.html">Documentation</a></li>
+                <li><a href="http://doc.playbasis.com/pbapp">API Explorer</a></li>
+                <li><a href="https://www.pbapp.net/login#register" class="btn btn-primary">Sign up !</a></li>
+            </ul>
+        </div><!-- /.nav-collapse -->
+    </div><!-- /.container -->
+</div><!-- /.navbar -->
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="container page" data-page="gettingstarted">
+
+      <script type="text/javascript">
+  $(document).ready(function(e){
+    
+    function updatePosition(){
+      for (var i = 13 - 1; i >= 1; i--) {
+        if( $($('.docs-dashboard>ul>li:eq('+i+') a').attr('data-section-target')).length > 0 ){
+          sectionPos[i] = $($('.docs-dashboard>ul>li:eq('+i+') a').attr('data-section-target')).offset().top;
+        } else {
+          sectionPos[i] = 0;
+        }
+      };
+    }
+
+        if (location.hash) {
+          setTimeout(function() {
+              var pageTargetInit = window.location.hash;
+              $('html, body').animate({scrollTop: $(pageTargetInit).offset().top -100 });
+          }, 1000);
+        }
+
+        var page = $('.page').attr('data-page');
+        $('.sidebar-nav li.'+page).addClass('current');
+
+        if(page == 'docs'){
+            $('.docs>ul').show();
+            $('.docs ul li:first-child ul').show();
+
+            var sectionTop1 = $($('.docs>ul>li:eq(1) a').attr('data-section-target')).offset().top;
+            var sectionTop2 = $($('.docs>ul>li:eq(2) a').attr('data-section-target')).offset().top;
+            var sectionTop3 = $($('.docs>ul>li:eq(3) a').attr('data-section-target')).offset().top;
+
+            $(window).scroll(function() {
+                var top = $('.container').offset().top;
+
+                $('.docs ul ul').hide();
+                $('.docs>ul>li>a').removeClass('current');
+                if(top >= (sectionTop3)-120){
+                    $('.docs>ul>li:eq(3) ul').show();
+                    $('.docs>ul>li:eq(3)>a').addClass('current');
+                }else if(top >= (sectionTop2)-110){
+                    $('.docs>ul>li:eq(2) ul').show();
+                    $('.docs>ul>li:eq(2)>a').addClass('current');
+                }else if(top >= (sectionTop1)-110){
+                    $('.docs ul li:eq(1) ul').show();
+                    $('.docs>ul>li:eq(1)>a').addClass('current');
+                }else{
+                    $('.docs ul li:eq(0) ul').show();
+                    $('.docs>ul>li:eq(0)>a').addClass('current');
+                }
+            });
+        }
+
+        if(page == 'docs-dashboard'){
+            $('.docs-dashboard>ul').show();
+            
+            if( $('.main-docs-dashboard').length <= 0 ){
+                $('li.docs-dashboard a').each(function(){
+                    var idDashboardPage = $(this).attr('data-section-target');
+                    if($(idDashboardPage).length > 0){
+                        $(this).addClass('current').parent().parent().show();
+                    }
+                });
+            }
+
+            var sectionPos = [];
+
+            updatePosition();
+
+           
+        }
+
+        if(page == 'docs-sdk'){
+            $('.docs-sdk>ul').show();
+            
+                $('li.docs-sdk a').each(function(){
+                    var idSdkPage = $(this).attr('data-section-target');
+                    if($(idSdkPage).length > 0){
+                        $(this).addClass('current').parent().parent().show();
+                    }
+                });
+            
+
+       
+        }
+
+        $('.docs a').click(function(e){
+             var target = $(this).attr('data-section-target');
+             history.pushState(null, null, target);
+            $('html, body').animate({scrollTop: $($(this).attr('data-section-target')).offset().top -100 }, 600, function(){
+                // window.location.hash= target;
+            });
+        })
+
+        $('.docs-dashboard a').click(function(e){
+
+            var target = $(this).attr('data-section-target');
+            history.pushState(null, null, target);
+            $('html, body').animate({scrollTop: $($(this).attr('data-section-target')).offset().top -100 }, 600, function(){
+                // window.location.hash= target;
+
+            });
+        })
+
+        $('.docs-sdk a').click(function(e){
+             var target = $(this).attr('data-section-target');
+             history.pushState(null, null, target);
+            $('html, body').animate({scrollTop: $($(this).attr('data-section-target')).offset().top -100 }, 600, function(){
+                // window.location.hash= target;
+            });
+        })
+
+    });
+
+
+</script>
+<div class="mobile-sidebar-nav clearfix" data-toggle="collapse" data-target="#sidebar-wrapper">
+    <h3>Menu</h3>
+    <button type="button" class="navbar-toggle">
+        <i class="fa fa-chevron-down"></i>
+    </button>
+</div>
+<div class="collapse navbar-collapse" id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+        <li class="gettingstarted"><a href="gettingstarted.html">Getting Started</a></li>
+        <li class="demo"><a href="demo.html">Demo</a></li>
+        
+        <li class="docs-dashboard"><a href="pages/docs-dashboard/dashboard-menu.html">Dashboard</a>
+            <ul>
+                <li><a href="pages/docs-dashboard/dashboard-menu.html" data-section-target="#dashboard-menu">Dashboard Menu</a>
+                    <ul>
+                        <li><a href="javascript:void(0)" data-section-target="#dashboard-page">Insight</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#live-feed">Live-feed</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#users-actions">Users Actions</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#leader-board">Leader Board</a></li>
+                    </ul>
+                </li>
+                <li><a href="pages/docs-dashboard/dashboard-page.html" data-section-target="#insight-menu">Insight Menu</a>
+                    <ul>
+                        <li><a href="javascript:void(0)" data-section-target="#insight-action">Actions</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#insight-reward">Rewards</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#insight-registration">Registration</a></li>
+                    </ul>
+                </li>
+                <li><a href="pages/docs-dashboard/domain-menu.html" data-section-target="#domain-menu">Domain Menu</a>
+                    <ul>
+                        <li><a href="javascript:void(0)" data-section-target="#domain-websites">Websites</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#domain-newsite">New Site</a></li>
+                    </ul>
+                </li>
+                <li><a href="pages/docs-dashboard/rule-engine.html" data-section-target="#rule-engine">Rules Engine</a>
+                    <ul>
+                        <li><a href="javascript:void(0)" data-section-target="#rule-create">Create a rule</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#rule-new">New Rule</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#rule-title">Rule title</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#rule-action">Add Action</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#rule-action-filter">Filter string</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#rule-condition">Condition</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#rule-reward">Reward</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#rule-reward-quantity">Reward quantity</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#rule-save-step">Save rule</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#rule-badge">Badge</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#rule-save">Save rule</a></li>
+                    </ul>
+                </li>
+                <li><a href="pages/docs-dashboard/quest-menu.html" data-section-target="#quest-menu">Quest menu</a>
+                    <ul>
+                        <li><a href="javascript:void(0)" data-section-target="#quest-example">Quest example</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#quest-new">Create quest</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#quest-details">Quest details</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#quest-mission-new">Create mission</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#quest-mission-details">Mission details</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#quest-mission-more">Add more Missions</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#quest-quest-limitation">Limitations</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#quest-save">Save quest</a></li>
+                    </ul>
+                </li>
+                <li><a href="pages/docs-dashboard/level-menu.html" data-section-target="#level-menu">Level Menu</a>
+                    <ul>
+                        <li><a href="javascript:void(0)" data-section-target="#level-create">Create new level</a></li>
+                    </ul>
+                </li>
+                <li><a href="pages/docs-dashboard/badge-menu.html" data-section-target="#badge-menu">Badge Menu</a>
+                    <ul>
+                        <li><a href="javascript:void(0)" data-section-target="#badge-create">Create new badge</a></li>
+                    </ul>
+                </li>
+                <li><a href="pages/docs-dashboard/good-menu.html" data-section-target="#good-menu">Goods List Menu</a>
+                    <ul>
+                        <li><a href="javascript:void(0)" data-section-target="#good-create">Create new good</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#goods-group">Create new goods Group</a></li>
+                    </ul>
+                </li>
+                <li><a href="pages/docs-dashboard/widget-menu.html" data-section-target="#widget-menu">Widget Menu</a>
+                    <ul>
+                        <li><a href="javascript:void(0)" data-section-target="#widget-notification">Notification widget</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#widget-social-login">Social login widget</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#widget-leaderboard">Leaderboard widget</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#widget-livefeed">Live feed Widget</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#widget-profile">Profile Widget</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#widget-achievement">Achievement widget</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#widget-userbar">User bar Widget</a></li>
+                    </ul>
+                </li>
+                <li><a href="pages/docs-dashboard/audience-menu.html" data-section-target="#audience-menu">Audience Menu</a>
+                    <ul>
+                        <li><a href="javascript:void(0)" data-section-target="#audience-summary">Summary</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#audience-crm">CRM</a></li>
+                    </ul>
+                </li>
+                <li><a href="pages/docs-dashboard/report-menu.html" data-section-target="#report-menu">Report Menu</a>
+                    <ul>
+                        <li><a href="javascript:void(0)" data-section-target="#report-export">Export players data</a></li>
+                    </ul>
+                </li>
+                <li><a href="pages/docs-dashboard/profile-editing.html" data-section-target="#profile-editing">Profile editing</a>
+                    <ul>
+                        <li><a href="javascript:void(0)" data-section-target="#profile-edit">Edit profile</a></li>
+                    </ul>
+                </li>
+                <li><a href="pages/docs-dashboard/sms-menu.html" data-section-target="#sms-menu">Sms Menu</a>
+                    <ul>
+                        <li><a href="javascript:void(0)" data-section-target="#sms-description">Integration with Twilio</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#sms-create-rule">Create a rule</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#sms-interface-twilio">Configure interface with Twilio</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#sms-create-goods">Create Goods</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#sms-import-list-goods">Import list of Goods</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#sms-set-points-redeem">Set points to deduct when Redeem</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#sms-api-usage">API usage</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="pages/docs-dashboard/email-menu.html" data-section-target="#create-email-template">Email Template</a>
+                </li>
+            </ul>
+        </li>
+        <li class="docs"><a href="<?php echo BASE_URL ?>/docs.php">API</a>
+            <ul>
+                <li><a href="javascript:void(0)" data-section-target="#basic-usages">Basic Usages</a>
+                    <ul>
+                        <li><a href="javascript:void(0)" data-section-target="#calling-the-api">Calling the API</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#authentication">Authentication</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#registering-users">Registering Users</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#doing-actions">Doing Actions</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#receiving-rewards">Receiving Rewards</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#login-and-logout">Login and Logout</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#querying-information">Querying Information</a></li>
+                    </ul>
+                </li>
+                <li><a href="javascript:void(0)" data-section-target="#receiving-real-time-notification">Receiving Real-Time Notification</a></li>
+                <li><a href="javascript:void(0)" data-section-target="#asynchronous-requests">Asynchronous Requests</a>
+                    <ul>
+                        <li><a href="javascript:void(0)" data-section-target="#calling-post-methods-asynchronously">Calling POST Methods Asynchronously</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#receiving-responses-from-asynchronous-calls">Receiving Responses from Asynchronous Calls</a></li>
+                    </ul>
+                </li>
+                <li><a href="javascript:void(0)" data-section-target="#social-integration">Social Integration</a>
+                    <ul>
+                        <li><a href="javascript:void(0)" data-section-target="#social-integration">Facebook</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#twitter">Twitter</a></li>
+                        <li><a href="javascript:void(0)" data-section-target="#janrain">Janrain</a></li>
+                    </ul>
+                </li>
+                <li class="api"><a href="http://doc.playbasis.com/pbapp">API Explorer</a></li>
+            </ul>
+        </li>
+        <li class="docs-sdk"><a href="pages/docs-sdk/index.html">SDK</a>
+            <ul>
+                
+                <li><a href="pages/docs-sdk/pay-and-play-sdk.html" data-section-target="#pay-and-play-sdk">Pay & Play SDK</a></li>
+                <li><a href="pages/docs-sdk/ios-sdk-intro.html" data-section-target="#ios-sdk">iOS SDK</a>
+                    <ul>
+                        <li><a href="pages/docs-sdk/ios-sdk-intro.html" data-section-target="#ios-sdk-intro">Introduction</a></li>
+                        <li><a href="pages/docs-sdk/ios-sdk-anatomy.html" data-section-target="#ios-sdk-anatomy">SDK’s Method Calls Anatomy</a></li>
+                        <li><a href="pages/docs-sdk/ios-sdk-badge-tutorial-1.html" data-section-target="#ios-sdk-badge-tutorial-1"> Simple Badge Tutorial - Part I</a></li>
+                        <li><a href="pages/docs-sdk/ios-sdk-badge-tutorial-2.html" data-section-target="#ios-sdk-badge-tutorial-2">Simple Badge Tutorial - Part II</a></li>
+                        <li><a href="pages/docs-sdk/ios-sdk-sample-apps.html" data-section-target="#ios-sdk-sample-apps">Sample Apps</a></li>
+                    </ul>
+                </li>
+                <li><a href="pages/docs-sdk/android-sdk-intro.html" data-section-target="#android-sdk">Android SDK</a>
+                    <ul>
+                        <li><a href="pages/docs-sdk/android-sdk-intro.html" data-section-target="#android-sdk-intro">Introduction</a></li>
+                        <li><a href="pages/docs-sdk/android-sdk-anatomy.html" data-section-target="#android-sdk-anatomy">Android SDK</a></li>
+                        <li><a href="pages/docs-sdk/android-sdk-badge-tutorial.html" data-section-target="#android-sdk-badge-tutorial"> Simple Badge Tutorial</a></li>
+                        <li><a href="pages/docs-sdk/android-sdk-sample-apps.html" data-section-target="#android-sdk-sample-apps">Sample Apps</a></li>
+                    </ul>
+                </li>
+                <li class="download"><a href="pages/download.html" data-section-target="#download-sdk">Download SDK</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+      <div class="content-page-col">
+        <div class="content-page-wrapper">
+          <h1>GETTING STARTED</h1>
+          <p>Playbasis provides gamification and engagement platform that allows brands, publishers, and entrepreneurs the ability to add fun, interactivity, and engagement to their products and services. Our platform can be integrated with any of digital channels with capability of full customizations.</p>
+
+          <p>
+            <h3>1. Register Account</h3>
+            <p>First step of integrating Playbasis Platform is signing up your digital products as Playbasis Account. Package and features may vary to price plan you choose.</p>
+          </p>
+
+          <div class="row">
+          <div class="col-sm-6">
+            <h3>2. Integrate Playbasis Social Login</h3>
+            <p>With social infrastructure and monitor provided. You can integrate Playbasis Social Login with your digital products easily. The platform allows you to keep record of using these social accounts, and make a proper report for analyzing. You will get better access to customers’ behaviors while your customers get convenience of logging-in by using their own existing social accounts.</p>
+          </div>
+          <div class="col-sm-6 text-center">
+            <img src="images/gettingstarted/login-btn.png" class="login-btn-img" >
+          </div>
+          </div><!-- .row -->
+
+          <h3>3. Setting Game Rule</h3>
+          <div class="row">
+          <div class="col-sm-12 col-md-6 text-center">
+            <img src="images/gettingstarted/set-rule.png" class="set-rule-img" >
+          </div>
+
+          <div class="col-sm-12 col-md-6">
+            <p>Playbasis Platform Dashboard offers full customization of game rule setting. You can easily create your own game rules for your digital products to lead users’ behaviors by setting action conditions, and reward them with achievements, experience point for leveling up, or point for reward redemption.</p>
+            <!-- <a href="http://demo.playbasis.com/" target="_blank" class="btn btn-primary">View Demo</a> -->
+            
+          </div>
+          </div><!-- .row -->
+
+          <h3>4. Implementation in Your Site</h3>
+          <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <pre class="prettyprint">
+  {
+     "player": {
+        "username": "Mark Knight",
+        "point": 12353,
+        "coin": 4015,
+        "exp": 2183,
+        "level": 7
+     }
+  }
+</pre>
+          </div>
+
+          <div class="col-sm-12 col-md-6">
+            <p>Once all rules have been set, all APIs are ready to implement to your site by linking each action of website into our API. Then all actions are ready to gamify.</p>
+            <a href="download.html"  class="btn btn-primary">Download</a>
+            <a href="http://doc.playbasis.com/pbapp/"  class="btn btn-default">API Reference</a>
+          </div>
+          </div><!-- .row -->
+
+          <div class="row">
+          <div class="col-sm-12 col-md-6">
+            <h3>5. Embed Widget</h3>
+            <p>Playbasis provides ready-widgets of leaderboard and live feed for your site to embed. Information shown in leaderboard can be customized freely to create competition among users which helps driving the action made on your digital products.</p>
+            <!--<a href="#"  class="btn btn-default">Lean more</a>-->
+          </div>
+          <div class="col-sm-12 col-md-6 text-center">
+            <img src="images/gettingstarted/widget.png" class="widget-img" >
+          </div>
+          </div><!-- .row -->
+
+        </div><!-- .content-wrapper -->
+
+      </div><!-- .content-page-col -->
+    </div><!--.container-->
+      </div>
+    </div>
+
+    <footer class="text-center">
+  <ul class="footer-nav">
+    <li ><a href="index.html">Developer</a></li>
+    <li><a href="gettingstarted.html">Getting Started</a></li>
+    <li><a href="demo.html">Demo</a></li>
+    <li><a href="http://dev.playbasis.com/docs.php">Documentation</a></li>
+    <li><a href="http://doc.playbasis.com/pbapp">API Explorer</a></li>
+  </ul>
+  <p>Playbasis Developer Documentation 2017</p>
+</footer>
+
+
+  </body>
+
+</html>
