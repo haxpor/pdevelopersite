@@ -4,7 +4,7 @@ email: devteam@playbasis.com
 description: > # this means to ignore newlines until "baseurl:"
     This is a testing developer site configured with automated build to ./docs as github's page.
 baseurl: "/pdevelopersite/" # the subpath of your site, e.g. /blog/
-url: "https://haxpor.github.io/pdevelopersite" # the base hostname & protocol for your site
+url: "https://haxpor.github.io" # the base hostname & protocol for your site
 twitter_username: haxpor
 github_username:  haxpor
 
